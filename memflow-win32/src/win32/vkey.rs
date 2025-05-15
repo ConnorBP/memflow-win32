@@ -333,3 +333,73 @@ pub const VK_Y: VKEY = VKEY(89u16);
 pub const VK_Z: VKEY = VKEY(90u16);
 pub const VK_ZOOM: VKEY = VKEY(251u16);
 pub const VK_NONE: VKEY = VKEY(255u16);
+
+
+/// Enum Form VKEY
+/// Keyboard keys are also represented by a byte
+/// Values mostly align with the microsoft VKEY spec
+#[repr(u16)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum Win32VirtualKey {
+    #[default]
+    NULL,
+    // mouse
+    Left, // 0x1
+    Right,
+    Cancel, // not mouse. This is VK_CANCEL
+    Middle,
+    XButton1,
+    XButton2,
+    ScrollUp,
+    ScrollDown,
+    ScrollLeft,
+    ScrollRight, // 0xA
+    // keyboard:
+    A = 0x41, // ascii code for capital 'A'. Same as VKEY
+    B,
+    C,
+    D,
+    E,
+    F,
+    G,
+    H,
+    I,
+    J,
+    K,
+    L,
+    M,
+    N,
+    O,
+    P,
+    Q,
+    R,
+    S,
+    T,
+    U,
+    V,
+    W,
+    X,
+    Y,
+    Z,
+    LWIN,
+    RWIN,
+    APPS,
+    _Reserved,
+    SLEEP,
+    NUMPAD0,
+    NUMPAD1,
+    NUMPAD2,
+    NUMPAD3,
+    NUMPAD4,
+    NUMPAD5,
+    NUMPAD6,
+    NUMPAD7,
+    NUMPAD8,
+    NUMPAD9, // 0x69
+}
+
+impl std::fmt::Display for Win32VirtualKey {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{:?}", self)
+    }
+}
